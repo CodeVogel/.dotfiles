@@ -1,12 +1,11 @@
 
 windows_install_script="~/.dotfiles/install/install-windows.ps1"
 
-if [ -f "$windows_install_script"]
+if [[ -f "$windows_install_script" ]]; then
    powershell.exe -command "Start-Process -FilePath powershell.exe -ArgumentList '-File $windows_install_script' -Verb RunAs"
 else
    echo "Could not find the install script for Windows software, supposedly located at $windows_install_script"
 fi
-
 
 # # Update available packages
 # sudo apt update
