@@ -11,7 +11,7 @@ if [[ -f "$powershell_script_in_wsl" ]]; then
    # Check if the script exists from Windows' POV
    if [[ "$(powershell.exe -command "Test-Path $powershell_script_in_windows -PathType Leaf" | tr -d '\r')" == "True" ]]; then 
       # Run the install script
-      powershell.exe -command "Start-Process -FilePath powershell.exe -ArgumentList '-File $powershell_script_in_windows' -Verb RunAs"
+      powershell.exe -command "Start-Process -FilePath powershell.exe -ArgumentList '-ExecutionPolicy Bypass -File $powershell_script_in_windows' -Verb RunAs"
    else 
       # Throw error
       echo "Could not find the install script for Windows software from Windows' POV, supposedly located at $powershell_script_in_windows"
