@@ -4,7 +4,7 @@ $scripts = @(
 )
 
 foreach ($script in $scripts) {
-   $path = "$env:WSLHOME_IN_WIN/$script"
+   $path = "$env:WSLHOME_IN_WIN/.dotfiles/install/$script"
    if (Test-Path $path) {
       Write-Host "Now installing $script"
       & $script
