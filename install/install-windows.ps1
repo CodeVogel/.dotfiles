@@ -4,15 +4,16 @@ $scripts = @(
 )
 
 foreach ($script in $scripts) {
-   path="$WSL_HOME_IN_WIN/$script"
-   if (Test-Path $path) {
-      Write-Host "Now installing $script"
-      & $script
-      Write-Host "Finished installing $script"
-   } else {
-      Write-Host "Did not find $script at $path"
-      break
-   }
+   $path = "$env:WSLHOME_IN_WIN/$script"
+   # if (Test-Path $path) {
+   #    Write-Host "Now installing $script"
+   #    & $script
+   #    Write-Host "Finished installing $script"
+   # } else {
+   #    Write-Host "Did not find $script at $path"
+   #    break
+   # }
+   echo $path
 }
 
 Read-Host "Press Enter To Continue"
