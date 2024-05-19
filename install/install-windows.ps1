@@ -1,15 +1,18 @@
 $scripts = @(
-   "./install-chocolatey.ps1",
-   "./install-alacritty.ps1"
+   "install-chocolatey.ps1",
+   "install-alacritty.ps1"
 )
 
 foreach ($script in $scripts) {
-   if (Test-Path $script) {
+   path="$WSL_HOME_IN_WIN/$script"
+   if (Test-Path $path) {
       Write-Host "Now installing $script"
       & $script
       Write-Host "Finished installing $script"
    } else {
-      Write-Host "Did not find $script!"
+      Write-Host "Did not find $script at $path"
       break
    }
 }
+
+Read-Host "Press Enter To Continue"

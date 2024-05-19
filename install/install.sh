@@ -1,22 +1,9 @@
 #!/usr/bin/env zsh
+export WSLHOME_IN_WIN="//wsl$/Ubuntu/home/$(whoami)"
+powershell.exe -command "[System.Environment]::SetEnvironmentVariable('WSLHOME_IN_WIN','$WSLHOME_IN_WIN', 'User')"
 
-windows_install_script_in_wsl="$HOME/.dotfiles/install/install-windows.ps1"
-windows_install_script_in_windows="//wsl$/Ubuntu/home/$(whoami)/.dotfiles/install/install-windows.ps1"
+source ~/.dotfiles/install/install-windows.sh
 
-# Check if the script exists from WSL's POV
-if [[ -f "$windows_install_script_in_wsl" ]]; then
-   # Check if the script exists from Windows' POV
-   if [[ "$(powershell.exe -command "Test-Path $windows_install_script_in_windows -PathType Leaf" | tr -d '\r')" == "True" ]]; then 
-      # Run the install script
-      powershell.exe -command "Start-Process -FilePath powershell.exe -ArgumentList '-File $windows_install_script_in_windows' -Verb RunAs"
-   else 
-      # Throw error
-      echo "Could not find the install script for Windows software from Windows' POV, supposedly located at $windows_install_script_in_windows"
-   fi
-else
-   # Throw error
-   echo "Could not find the install script for Windows software from WSL's POV, supposedly located at $windows_install_script_in_wsl"
-fi
 # # Update available packages
 # sudo apt update
 #
