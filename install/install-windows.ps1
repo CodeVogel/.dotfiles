@@ -3,17 +3,16 @@ $scripts = @(
    "install-alacritty.ps1"
 )
 
-foreach ($script in $scripts) {
-   $path = "$env:WSLHOME_IN_WIN/.dotfiles/install/$script"
+foreach ($scriptname in $scripts) {
+   $path = "$env:WSLHOME_IN_WIN/.dotfiles/install/$scriptname"
    if (Test-Path $path) {
-      Write-Host "Now installing $script"
-      & $script
-      Write-Host "Finished installing $script"
+      Write-Host "Now installing $scriptname"
+      & $path
+      Write-Host "Finished installing $scriptname"
    } else {
-      Write-Host "Did not find $script at $path"
+      Write-Host "Did not find $scriptname at $path"
       break
    }
-   echo $path
 }
 
 Read-Host "Press Enter To Continue"
