@@ -1,5 +1,5 @@
 
-windows_install_script="~/.dotfiles/install/install-windows.ps1"
+windows_install_script="$HOME/.dotfiles/install/install-windows.ps1"
 
 if [[ -f "$windows_install_script" ]]; then
    powershell.exe -command "Start-Process -FilePath powershell.exe -ArgumentList '-File $windows_install_script' -Verb RunAs"
