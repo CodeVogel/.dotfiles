@@ -1,9 +1,8 @@
-# Set up a variable for the Windows home directory
-export WIN_HOME=$(wslpath "$(cmd.exe /C echo %USERPROFILE% 2>/dev/null | tr -d '\r')")
-export DOTFILES=$WIN_HOME/.dotfiles
+# Add brew install dir to path
+export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=~/ohmyzsh
 
 # Enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -21,4 +20,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/jandedobbeleer.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/patriksvensson.omp.json)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
