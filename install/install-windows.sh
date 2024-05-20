@@ -2,7 +2,7 @@
 install_if_exists_powershell () {
    script_path=$1
    path_in_wsl="$HOME/$script_path"
-   path_in_windows="$WSLHOME_IN_WIN/$script_path"
+   path_in_windows="//wsl$/Ubuntu/home/$(whoami)/$script_path"
 
    # Check if the script exists from WSL's POV
    if [[ -f "$path_in_wsl" ]]; then
@@ -22,4 +22,4 @@ install_if_exists_powershell () {
 }
 
 install_if_exists_powershell .dotfiles/install/ensure-chocolatey-installed.ps1
-install_if_exists_powershell .dotfiles/install/install-windows.ps1
+#install_if_exists_powershell .dotfiles/install/install-windows.ps1
