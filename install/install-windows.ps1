@@ -1,5 +1,4 @@
 $scripts = @(
-   "install-chocolatey.ps1",
    "install-alacritty.ps1"
 )
 
@@ -9,6 +8,7 @@ foreach ($scriptname in $scripts) {
       Write-Host "Now installing $scriptname"
       & $path
       Write-Host "Finished installing $scriptname"
+      RefreshEnv
    } else {
       Write-Host "Did not find $scriptname at $path"
       break
