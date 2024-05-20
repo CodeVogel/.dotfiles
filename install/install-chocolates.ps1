@@ -1,3 +1,5 @@
+Read-Host "Starting installation of tools through Chocolatey. Press Enter to continue."
+
 $scripts = @(
    "install-alacritty.ps1"
 )
