@@ -1,4 +1,5 @@
 #!/bin/bash
+# deps: zsh
 
 # Export env variable so the oh-my-zsh install script does not override our .zshrc 
 export KEEP_ZSHRC='yes'
