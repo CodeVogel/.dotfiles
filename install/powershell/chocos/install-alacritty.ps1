@@ -6,7 +6,7 @@ $link_path = "$link_dir\alacritty.toml"
 $target_path = "\\wsl$\Ubuntu\home\$(wsl whoami)\.dotfiles\alacritty\alacritty.toml"
 
 # Throw error if alacritty toml is missing
-if (-Not (Test-Path $targetpath)) {
+if (-Not (Test-Path $target_path)) {
    Write-Output "Tried making a symlink $link_path to target $target_path but target does not exist."
 }
 
