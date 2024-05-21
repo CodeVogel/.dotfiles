@@ -1,8 +1,5 @@
-#!/usr/bin/env zsh
-export WSLHOME_IN_WIN="//wsl$/Ubuntu/home/$(whoami)"
-powershell.exe -command "[System.Environment]::SetEnvironmentVariable('WSLHOME_IN_WIN','$WSLHOME_IN_WIN', 'User')"
-
-source ~/.dotfiles/install/install-windows.sh
+#!/bin/bash
+source ~/.dotfiles/install/bash/install-windows.sh
 
 # # Update available packages
 # sudo apt update

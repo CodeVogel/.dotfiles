@@ -5,7 +5,7 @@ $scripts = @(
 )
 
 foreach ($scriptname in $scripts) {
-   $path = "$env:WSLHOME_IN_WIN/.dotfiles/install/$scriptname"
+   $path = "$env:WSLHOME_IN_WIN/.dotfiles/install/powershell/chocos/$scriptname"
    if (Test-Path $path) {
       Write-Host "Now installing $scriptname"
       & $path
@@ -17,4 +17,4 @@ foreach ($scriptname in $scripts) {
    }
 }
 
-Read-Host "Press Enter To Continue"
+Read-Host "All done with the chocos. Press Enter To Continue"
