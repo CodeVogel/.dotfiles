@@ -18,10 +18,9 @@ while IFS= read -r line
 do
    # Ignore lines starting with '#' and empty lines
    if [[ $line != \#* ]] && [ -n "$line" ]; then
-      # Check if the path is relative
-      if [[ $line != /* ]]; then
-          # Convert the relative path to an absolute path
-          line="$INSTALL_DIR/$line"
+      # If path starts with './', replace it with the path to the install directory 
+      if [[ $line == ./* ]]; then
+         line="$INSTALL_DIR/${line:2}"
       fi
       source "$line"
    fi
