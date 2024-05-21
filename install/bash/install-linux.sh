@@ -5,8 +5,8 @@ sudo apt update
 
 # Define a function to read and source a configuration file
 read_and_source() {
-    INSTALL_TYPE=$1
-    CONF_FILE="~/.dotfiles/install/bash/$INSTALL_TYPE/active.conf"
+    INSTALL_DIR="/home/$(whoami)/.dotfiles/install/bash/$1"
+    CONF_FILE="$INSTALL_DIR/active.conf"
 
     # Check if the configuration file exists
     if [ ! -f "$CONF_FILE" ]; then
@@ -22,7 +22,7 @@ read_and_source() {
             # Check if the path is relative
             if [[ $line != /* ]]; then
                 # Convert the relative path to an absolute path
-                line="/home/$(whoami)/.dotfiles/install/bash/$INSTALL_TYPE/$line"
+                line="$INSTALL_DIR/$line"
             fi
             source "$line"
         fi
