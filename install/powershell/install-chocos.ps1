@@ -5,7 +5,7 @@ $activeConf = Join-Path -Path $scriptsDir -ChildPath "active.conf"
 
 # Check if the conf file exists
 if (!(Test-Path $activeConf)) {
-    Write-Host "Configuration file not found at $activeConf"
+    Write-Host "Configuration file for active scripts not found at $activeConf"
     exit
 }
 
