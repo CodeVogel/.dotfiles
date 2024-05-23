@@ -22,6 +22,7 @@ do
       if [[ $line == ./* ]]; then
          line="$INSTALL_DIR/${line:2}"
       fi
-      source "$line"
+      # source the stripped path
+      source $line | xargs
    fi
 done < "$CONF_FILE"
