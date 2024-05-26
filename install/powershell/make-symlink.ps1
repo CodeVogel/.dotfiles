@@ -1,50 +1,59 @@
 param (
-   [string]$linkPath,
-   [string]$targetPath
+   [string]$linkPath,   # The path of the link
+   [string]$targetPath  # The path of the actual file
 )
 
-# Split linkPath into directory and file
-$linkDir = Split-Path $linkPath -Parent
-$linkFile = Split-Path $linkPath -Leaf
+####################################################################################################
+# Determine correct usage of the script
+####################################################################################################
 
-# Setup symlink to wezterm config
-$targetPath = "\\wsl$\Ubuntu\home\$(wsl whoami)\.dotfiles\wezterm\.wezterm.lua"
-
-# Throw error if the target doesn't exist
-if (-Not (Test-Path $targetPath)) {
-   Write-Output "Tried making a symlink $linkPath to target $targetPath but target does not exist."
-   return 1
+# Check if arguments are provided
+if (-not $linkPath -or -not $targetPath) {
+    Write-Output "Usage: make-symlink.ps1 -linkPath <linkPath> -targetPath <targetPath>"
+    exit 1
 }
 
-# Check if any of the variables are empty or whitespace
-if (-Not $linkDir -or -Not $linkPath -or -Not $targetPath) {
-   Write-Output "Passed an empty variable! Usage: make-symlink.ps1 <linkDir> <linkPath> <targetPath>"
-   return 1
+# Check if shell runs elevated
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Output "make-symlink does not have sufficient priviliges. Please run the script as an administrator."
+    exit 1
 }
 
-# Attempt to make the link directory if it doesn't exist
-if (-Not (Test-Path $linkDir)) {
-   # Ask for confirmation first
-   $response = Read-Host "Link directory $linkDir does not exist. Create it? (y/n)" 
-   if ($response -ne "y") {
-      Write-Output "Link directory $linkDir does not exist. Not creating."
-      return 1
+# Check if target path exists
+if (-not (Test-Path $targetPath)) {
+    Write-Output "Target path $targetPath does not exist"
+    exit 1
+}
+
+# Check if link directory exists
+$directory = Split-Path $linkPath
+if (-not (Test-Path $directory)) {
+   # Offer to create directory
+   $response = Read-Host -Prompt "Directory $directory does not exist. Create it? (y/n)"
+   if ($response -eq "y") {
+      New-Item -ItemType Directory -Path $directory
+   } else {
+      Write-Output "Exiting"
+      exit 1
    }
-   New-Item -ItemType Directory -Path $linkDir
 }
 
-# If the symlink already exists, remove it
+# Check if link path already exists
 if (Test-Path $linkPath) {
-   # Ask for confirmation first
-   $response = Read-Host "Symlink already exists at $linkPath. Remove it? (y/n)"
-   if ($response -ne "y") {
-      Write-Output "Symlink already exists at $linkPath. Not removing."
-      return 1
+   # Offer to remove existing link
+   $response = Read-Host -Prompt "A file $linkPath already exists. This may be an old symlink. Remove it? (y/n)"
+   if ($response -eq "y") {
+      Remove-Item $linkPath
+   } else {
+      Write-Output "Exiting"
+      exit 1
    }
-   Write-Output "Removing symlink at $linkPath"
-   Remove-Item $linkPath
 }
+
+####################################################################################################
+# Create the symlink
+# https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item
+####################################################################################################
 
 Write-Output "Creating symlink at $linkPath to target $targetPath"
-# Symlink alacritty config from the expected path on Windows into .dotfiles
 New-Item -ItemType SymbolicLink -Path $linkPath -Target $targetPath
