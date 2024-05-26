@@ -1,6 +1,6 @@
 Read-Host "Starting installation of tools through Chocolatey. Press Enter to continue."
 
-$scriptsDir = "//wsl$/Ubuntu/home/$(wsl whoami)/.dotfiles/install/powershell/choco"
+$scriptsDir = "//wsl$/Ubuntu/home/$(wsl whoami)/.dotfiles/install/powershell/chocos"
 $activeConf = Join-Path -Path $scriptsDir -ChildPath "active.conf"
 
 # Check if the conf file exists
