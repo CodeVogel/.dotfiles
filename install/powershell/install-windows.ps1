@@ -5,3 +5,4 @@ $WSLHOME = "\\wsl$\Ubuntu\home\$(wsl whoami)"
 
 # Install chocolatey
 Start-Process -FilePath powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File $WSLHOME\.dotfiles\install\powershell\install-chocolatey.ps1" -Verb RunAs
+Start-Process -FilePath powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File $WSLHOME\.dotfiles\install\powershell\install-chocos.ps1" -Verb RunAs
