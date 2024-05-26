@@ -10,7 +10,7 @@ end
 
 local style = {
    font = wezterm.font("JetBrains Mono"),
-   font_size = 12.0,
+   font_size = 14.0,
    line_height = 1.0,
    window_decorations = "INTEGRATED_BUTTONS|RESIZE",
    enable_scroll_bar = false,
