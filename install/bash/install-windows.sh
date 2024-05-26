@@ -10,4 +10,4 @@ windows_install_script="$install_dir/install-windows.ps1"
 
 # Run the windows installation script as an administrator (Triggers UAC prompt)
 # Waits for finish.
-powershell.exe -Command "Start-Process powershell -ArgumentList '-File $install_dir/install-windows.ps1' -Verb RunAs -Wait"
+powershell.exe -Command "Start-Process powershell -ArgumentList '-File $($install_dir)/install-windows.ps1' -Verb RunAs -Wait"
