@@ -6,7 +6,8 @@ install_dir="/home/$(whoami)/.dotfiles/install/powershell"
 echo "Checking installation order for packages in $install_dir..."
 check_install_order $(get_files_from_config $install_dir)
 
-windows_install_script="$install_dir/install-windows.ps1"
+windows_install_script "$install_dir/install-windows.ps1"
 
-# Run the windows installation script as an administrator (triggers UAC prompt)
-powershell.exe -Command "Start-Process powershell -ArgumentList '-ExecutionPolicy Bypass -File $windows_install_script' -Verb RunAs"
+# Run the windows installation script as an administrator (Triggers UAC prompt)
+# Waits for finish.
+powershell.exe -Command "Start-Process powershell -ArgumentList '-File $install_dir/install-windows.ps1' -Verb RunAs -Wait"
