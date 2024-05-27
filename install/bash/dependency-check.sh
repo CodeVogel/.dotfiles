@@ -10,7 +10,7 @@ check_install_order() {
     package_name=$(basename "$file" | sed 's/install-//;s/\.sh//')
 
     # Extract dependencies from the file
-    dependencies=$(grep -iE "#*.deps*.:" "$file" | sed 's/#*.deps*.//I' | tr -d ' ')
+    dependencies=$(grep -iE "#*.deps*.:" $file | sed 's/#*.deps*.//I' | tr -d ' ')
     # for each dependency by comma
     for dependency in $(echo "$dependencies" | tr ',' '\n'); do
       # Check if the dependency is in the list of packages
@@ -50,7 +50,7 @@ get_files_from_config() {
         line="$install_dir/${line:2}"
       fi
       # add line to array
-      lines+=("$line")
+      lines+=($(echo $line | sed 's/\.sh.*/.sh/'))
     fi
   done <"$conf_file"
   echo ${lines[@]}
