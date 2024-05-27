@@ -1,12 +1,12 @@
-Write-Host "Starting installation of tools through Chocolatey..."
+Read-Host "Starting installation of tools through Chocolatey. Press Enter to continue."
 
 $scriptsDir = "//wsl$/Ubuntu/home/$(wsl whoami)/.dotfiles/install/powershell/chocos"
 $activeConf = Join-Path -Path $scriptsDir -ChildPath "active.conf"
 
 # Check if the conf file exists
 if (!(Test-Path $activeConf)) {
-    Write-Out "Configuration file for active scripts not found at $activeConf"
-    exit 1
+    Write-Host "Configuration file for active scripts not found at $activeConf"
+    exit
 }
 
 # Read the script paths from the conf file and filter out comments
@@ -24,9 +24,10 @@ foreach ($scriptPath in $activeScripts) {
       Write-Host "Finished installing $scriptPath"
       RefreshEnv
    } else {
-      Write-Out "Did not find script at $scriptPath"
+      Read-Host "Did not find script at $scriptPath. Exiting. (Press Enter to exit.)"
       exit 1
    }
 }
 
-Write-Out "Finished installation of tools through Chocolatey."
+Read-Host "All done with the chocos. Press Enter To Continue"
+
