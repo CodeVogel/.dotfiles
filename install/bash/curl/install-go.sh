@@ -1,3 +1,4 @@
+#!/bin/bash
 # Download the latest version URL
 latest=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
 latest_url="https://golang.org/dl/$latest.linux-amd64.tar.gz"
