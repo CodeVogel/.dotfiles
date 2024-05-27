@@ -9,6 +9,9 @@ if (!(Test-Path $activeConf)) {
     exit
 }
 
+# Load the Chocolatey profile
+Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+
 # Read the script paths from the conf file and filter out comments
 $activeScripts = Get-Content $activeConf | Where-Object { $_ -notmatch "^#" }
 
