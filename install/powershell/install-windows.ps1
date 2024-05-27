@@ -6,5 +6,8 @@ $WSLHOME = "\\wsl$\Ubuntu\home\$(wsl whoami)"
 # Install chocolatey
 
 Start-Process -FilePath powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File $WSLHOME\.dotfiles\install\powershell\install-chocolatey.ps1 -Wait" -Verb RunAs -Wait
-echo $LASTEXITCODE
-Start-Process -FilePath powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File $WSLHOME\.dotfiles\install\powershell\install-chocos.ps1" -Verb RunAs -Wait
+
+# Refresh path
+$env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User')
+$installChocosCommand = "-ExecutionPolicy Bypass -File $WSLHOME\.dotfiles\install\powershell\install-chocos.ps1"
+Start-Process -FilePath powershell.exe -ArgumentList "$installChocosCommand" -Verb RunAs -Wait
