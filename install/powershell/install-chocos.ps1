@@ -9,9 +9,6 @@ if (!(Test-Path $activeConf)) {
     exit
 }
 
-# Load the Chocolatey profile
-Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
-
 # Read the script paths from the conf file and filter out comments
 $activeScripts = Get-Content $activeConf | Where-Object { $_ -notmatch "^#" }
 
@@ -25,7 +22,6 @@ foreach ($scriptPath in $activeScripts) {
       Write-Host "Now installing $scriptPath"
       & $scriptPath
       Write-Host "Finished installing $scriptPath"
-      RefreshEnv
    } else {
       Read-Host "Did not find script at $scriptPath. Exiting. (Press Enter to exit.)"
       exit 1
