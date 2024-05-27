@@ -2,7 +2,7 @@
 export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
-export ZSH=~/ohmyzsh
+export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 plugins=(git)
 
