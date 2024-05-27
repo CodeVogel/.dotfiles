@@ -1,4 +1,4 @@
-Read-Host "Starting installation of tools through Chocolatey. Press Enter to continue."
+# Read-Host "Starting installation of tools through Chocolatey. Press Enter to continue."
 
 $scriptsDir = "//wsl$/Ubuntu/home/$(wsl whoami)/.dotfiles/install/powershell/chocos"
 $activeConf = Join-Path -Path $scriptsDir -ChildPath "active.conf"
@@ -28,5 +28,5 @@ foreach ($scriptPath in $activeScripts) {
    }
 }
 
-Read-Host "All done with the chocos. Press Enter To Continue"
+# Read-Host "All done with the chocos. Press Enter To Continue"
 
