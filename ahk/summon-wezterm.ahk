@@ -1,8 +1,8 @@
 #`:: ; Hotkey: WIN + `
 
 ; Define the name of your executable and its path
-exeName := "alacritty.exe"
-exePath := "C:\Program Files\Alacritty\alacritty.exe"
+exeName := "wezterm.exe"
+exePath := "C:\Program Files\Wezterm\wezterm.exe"
 
 IfWinExist, ahk_exe %exeName% ; Check if a window with your program exists
 {
