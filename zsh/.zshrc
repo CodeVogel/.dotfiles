@@ -3,6 +3,8 @@ export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
 export ZSH=~/ohmyzsh
+source $ZSH/oh-my-zsh.sh
+plugins=(git)
 
 # Enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -16,13 +18,8 @@ COMPLETION_WAITING_DOTS="true"
  # remind to update when it's time
 zstyle ':omz:update' mode reminder
 
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/patriksvensson.omp.json)"
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/patriksvensson.omp.json)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
