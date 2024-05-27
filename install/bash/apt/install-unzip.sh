@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install unzip -y
+sudo apt-get install unzip -y

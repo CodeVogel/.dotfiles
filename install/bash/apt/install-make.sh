@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install make -y
+sudo apt-get install make -y

@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install stow
+sudo apt-get install stow -y
