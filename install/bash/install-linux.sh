@@ -22,4 +22,12 @@ for file in $files_from_config; do
   fi
   echo "Installing $file..."
   source $file
+  source ~/.bashrc
 done
+
+# Offer to change shell to zsh
+echo "Done with installation. Would you like to change your default shell to zsh? (y/n)"
+read change_shell
+if [[ $change_shell == "y" ]]; then
+  sudo chsh -s $(which zsh) $(whoami)
+fi
