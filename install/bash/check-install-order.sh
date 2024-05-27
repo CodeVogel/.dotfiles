@@ -6,8 +6,7 @@ check_install_order() {
 
   # Extract package names
   for file in "${files[@]}"; do
-    package_name=$(basename "$file" | sed 's/install-//;s/\.sh//')
-
+    package_name=$(basename "$file" | sed 's/install-//;s/\.sh.*//')
     # Extract dependencies from the file
     dependencies=$(grep -iE "#*.deps*.:" "$file" | sed 's/#*.deps*.//I' | tr -d ' ')
     # for each dependency by comma
