@@ -3,10 +3,6 @@
 
 sudo apt install zsh -y
 
-# Change default shell to zsh
-me=$(whoami)
-sudo chsh -s $(which zsh) $me
-
 # Set dotfiles location for zsh
 export ZDOTDIR=~/.dotfiles/zsh
 
