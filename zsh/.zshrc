@@ -19,7 +19,7 @@ COMPLETION_WAITING_DOTS="true"
 zstyle ':omz:update' mode reminder
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/patriksvensson.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/patriksvensson.omp.json)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
