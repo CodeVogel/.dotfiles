@@ -3,7 +3,7 @@
 
 source ~/.dotfiles/install/bash/dependency-check.sh
 install_dir="/home/$(whoami)/.dotfiles/install/powershell"
-echo "Checking installation order for packages in $install_dir..."
+echo "🗨️ Checking installation order for packages in $install_dir..."
 check_install_order $(get_files_from_config $install_dir)
 
 windows_install_script="$install_dir/install-windows.ps1"

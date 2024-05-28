@@ -15,7 +15,7 @@ check_install_order() {
     for dependency in $(echo "$dependencies" | tr ',' '\n'); do
       # Check if the dependency is in the list of packages
       if ! echo "${packages[@]}" | grep -q "$dependency"; then
-        echo "INVALID INSTALLATION ORDER (at $file):"
+        echo "❌ INVALID INSTALLATION ORDER (at $file):"
         echo "The installer for '$package_name' lists '$dependency' as a dependency, but '$dependency' is not yet present in the list of packages."
         return 1
       fi
@@ -24,7 +24,7 @@ check_install_order() {
     packages+=("$package_name")
   done
 
-  echo "All packages are in the correct order."
+  echo "🗨️ All packages are in the correct order."
   return 0
 }
 
@@ -34,7 +34,7 @@ get_files_from_config() {
 
   # Check if the configuration file exists
   if [ ! -f "$conf_file" ]; then
-    echo "Configuration file not found: $conf_file"
+    echo "❌ Configuration file not found: $conf_file"
     exit 1
   fi
 

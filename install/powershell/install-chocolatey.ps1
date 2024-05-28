@@ -4,14 +4,14 @@
 # Get-ExecutionPolicy must not be Restricted
 if ($(Get-ExecutionPolicy) -eq "Restricted")
 {
-   $response = Read-Host -Prompt "ExecutionPolicy is Restricted. Set the execution policy to AllSigned? (y/n)"
+   $response = Read-Host -Prompt "❗ExecutionPolicy is Restricted. Set the execution policy to AllSigned? (y/n)"
    if ($response -eq "y")
    {
       Set-ExecutionPolicy AllSigned
    }
    else
    {
-      Write-Host "Exiting script. ExecutionPolicy must be AllSigned or Unrestricted to install Chocolatey."
+      Write-Host "❌ Exiting script. ExecutionPolicy must be AllSigned or Unrestricted to install Chocolatey."
       exit 1
    }
 }

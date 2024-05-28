@@ -5,7 +5,7 @@ $activeConf = Join-Path -Path $scriptsDir -ChildPath "active.conf"
 
 # Check if the conf file exists
 if (!(Test-Path $activeConf)) {
-    Write-Host "Configuration file for active scripts not found at $activeConf"
+    Write-Host "❌ Configuration file for active scripts not found at $activeConf"
     exit
 }
 
@@ -19,11 +19,11 @@ foreach ($scriptPath in $activeScripts) {
    }
 
    if (Test-Path $scriptPath) {
-      Write-Host "Now installing $scriptPath"
+      Write-Host "🗨️ Now installing $scriptPath"
       & $scriptPath
-      Write-Host "Finished installing $scriptPath"
+      Write-Host "🗨️ Finished installing $scriptPath"
    } else {
-      Read-Host "Did not find script at $scriptPath. Exiting. (Press Enter to exit.)"
+      Read-Host "❌ Did not find script at $scriptPath. Exiting. (Press Enter to exit.)"
       exit 1
    }
 }
