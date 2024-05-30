@@ -46,7 +46,7 @@ A brief overview of how my setup in this repository works:
  - The repository houses configuration files, and lives at the home directory of WSL (`~/.dotfiles`) on your systems. 
  - The installation scripts in this repository set up your development environment by:
    - Installing the tools you need.
-   - Setting up symlinks to the configuration files in this repository.
+   - Setting up symlinks to the configuration files in this repository (leveraging GNU [stow](https://www.gnu.org/software/stow/))
    - Performing other tasks, such as installing fonts, adding programs to Windows' startup cycle, etc.
  - The installation script `/install/install.sh` is the global entry point for all installations. It runs the scripts `/install/bash/install-linux.sh` and `install/bash/install-windows.sh`, which in turn run all the scripts that are listed in (`install/bash/active.conf` and `install/powershell/active.conf`), in consecutive order.
  - A primitive dependency system is in place:
