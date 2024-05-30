@@ -8,7 +8,7 @@ This repository houses my [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_a
 
  - Configuration files for various tools I use (e.g. [Neovim](https://neovim.io/), [Tmux](https://github.com/tmux/tmux/wiki), etc.), for both Windows and WSL2.
  - Installation scripts for setting up my Windows and WSL2 development environment. (Installing tools, setting up symlinks, etc.)
- - A few scripts to automate common tasks.
+ - A few scripts to automate common tasks, or that improve my workflow (such as AHK scripts that open my terminal).
  - A few templates for files I use often (e.g. [.editorconfig](https://editorconfig.org/) ).
 
 ## Who is this for?
