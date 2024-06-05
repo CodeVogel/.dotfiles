@@ -1,4 +1,4 @@
--- This config has it's root in kickstart modular ( https://github.com/dam9000/kickstart-modular.nvim/tree/01a18a193dfa1d5837faf0df669f1b06f4301f78 )
+-- This config has it's roots in kickstart modular ( https://github.com/dam9000/kickstart-modular.nvim/tree/01a18a193dfa1d5837faf0df669f1b06f4301f78 )
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 require 'options'

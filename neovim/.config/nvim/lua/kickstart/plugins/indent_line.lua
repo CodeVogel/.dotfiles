@@ -1,10 +1,10 @@
 return {
-  { -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    priority = 10000,
-    opts = { indent = { char = '▏' } },
-  },
+   { -- Add indentation guides even on blank lines
+      'lukas-reineke/indent-blankline.nvim',
+      -- Enable `lukas-reineke/indent-blankline.nvim`
+      -- See `:help ibl`
+      main = 'ibl',
+      priority = 10000,
+      opts = { indent = { char = '▏' } },
+   },
 }
