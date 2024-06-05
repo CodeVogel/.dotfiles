@@ -1,5 +1,4 @@
 #!/bin/bash
-# Deps: python3, pip
-
+# No dependencies since Python ships with Ubuntu
 # Install commitizen
 pip install --user -U Commitizen
