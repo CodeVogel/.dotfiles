@@ -1,24 +1,19 @@
-#`:: ; Hotkey: WIN + `
+#SingleInstance Force
+#`::ToggleApp()
+ToggleApp() {
+    AppClass := "org.wezfurlong.wezterm"
 
-; Define the name of your executable and its path
-exeName := "wezterm.exe"
-exePath := "C:\Program Files\Wezterm\wezterm.exe"
-
-IfWinExist, ahk_exe %exeName% ; Check if a window with your program exists
-{
-    IfWinActive, ahk_exe %exeName% ; Check if the window is active
+    ifWinActive, ahk_class %AppClass%
     {
-        WinHide, ahk_exe %exeName% ; If the window is active, hide it
+         WinMinimize, ahk_class %AppClass%
     }
     else
     {
-        WinShow, ahk_exe %exeName% ; If the window is not active (hidden or in the background), show it
-        WinActivate, ahk_exe %exeName% ; Activate the window
+         WinActivate, ahk_class %AppClass%
     }
+    IfWinNotExist, ahk_class %AppClass%
+    {
+        Run, "C:\Program Files\WezTerm\wezterm-gui.exe" ; Replace with the actual path to your application
+    }
+    return
 }
-else
-{
-    Run, %exePath% ; If the window does not exist, launch the program
-}
-return ; End of hotkey
-
