@@ -168,6 +168,14 @@ return {
             -- But for many setups, the LSP (`tsserver`) will work just fine
             -- tsserver = {},
             --
+            svelte = {},
+            svelte = {
+               capabilities = {
+                  workspace = {
+                     didChangeWatchedFiles = false,
+                  },
+               },
+            },
 
             lua_ls = {
                -- cmd = {...},
@@ -216,4 +224,3 @@ return {
       end,
    },
 }
--- vim: ts=2 sts=2 sw=2 et
