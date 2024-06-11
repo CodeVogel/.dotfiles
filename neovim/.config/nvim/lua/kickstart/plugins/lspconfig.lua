@@ -168,11 +168,15 @@ return {
             -- But for many setups, the LSP (`tsserver`) will work just fine
             -- tsserver = {},
             --
-            svelte = {},
             svelte = {
                capabilities = {
                   workspace = {
                      didChangeWatchedFiles = false,
+                  },
+               },
+               settings = {
+                  lint = {
+                     unknownAtRules = 'ignore',
                   },
                },
             },
