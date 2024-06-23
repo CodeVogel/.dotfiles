@@ -3,6 +3,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
 # Add commitizen to path
 export PATH=/home/kamiel/.local/bin/:$PATH
 
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
 export ZSH=~/.oh-my-zsh
