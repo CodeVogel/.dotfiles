@@ -4,6 +4,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
 export PATH=/home/kamiel/.local/bin/:$PATH
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+export EDITOR='nvim'
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
 export ZSH=~/.oh-my-zsh
