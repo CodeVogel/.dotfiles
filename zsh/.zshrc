@@ -6,6 +6,7 @@ export PATH=/home/kamiel/.local/bin/:$PATH
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 export EDITOR='nvim'
 alias pls='~/.dotfiles/pls/pls.sh'
+alias tmt='source ~/.dotfiles/takemethere/takemethere.sh'
 
 # Path to oh-my-zsh ( https://ohmyz.sh/ ) installation.
 export ZSH=~/.oh-my-zsh
